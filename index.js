@@ -161,7 +161,7 @@ app.post('/add-product', (req, res) => {
             name: req.body.name,
             price: req.body.price.toString(),
             description: req.body.description,
-            image: 'http://localhost:5000/uploads/' + filenames[0],
+            image: 'https://fullapp-861f.onrender.com/uploads/' + filenames[0],
             size1: req.body.size,
             size2: req.body.size2,
             size3: req.body.size3,
@@ -169,9 +169,9 @@ app.post('/add-product', (req, res) => {
             status: req.body.status1,
             delivery: req.body.delivery,
             store: req.body.shop,
-            image1: 'http://localhost:5000/additional/' + filenames[1],
-            image2: 'http://localhost:5000/additional/' + filenames[2],
-            image3: 'http://localhost:5000/additional/' + filenames[3],
+            image1: 'https://fullapp-861f.onrender.com/additional/' + filenames[1],
+            image2: 'https://fullapp-861f.onrender.com/additional/' + filenames[2],
+            image3: 'https://fullapp-861f.onrender.com/additional/' + filenames[3],
              
             // ...
           }
@@ -712,7 +712,7 @@ app.post('/onboard', (req, res) => {
           externalUUID, // Utilise l'UUID externe comme identifiant du document
           { 
           documentId: externalUUID,
-          logo: 'http://localhost:5000/logo/'+ filenames[0],
+          logo: 'https://fullapp-861f.onrender.com/logo/'+ filenames[0],
           store: req.body.store,
           owner: req.body.owner,
           userId: userIdGlobal,
