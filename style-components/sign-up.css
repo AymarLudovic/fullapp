@@ -1,0 +1,118 @@
+.input-group{
+    position: relative;
+    margin: 10px 0;
+    width: 62%;
+}
+
+.input-group label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: x-small;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: all .1s ease;
+    
+}
+.input-group input{
+    width: 100%;
+    height: 35px;
+    font-size: small;
+    padding: 0 10px;
+    background: white;
+    border: 1px dashed #222;
+    border-radius: 4px;
+    outline: none;
+    color: black;
+}
+.input-group input:focus~label,
+.input-group input:valid~label{
+    top: 0;
+    font-size: x-small;
+    background: white;
+}
+.input-group input:focus,
+.input-group input:valid{
+    border: 1px dashed #222;
+}
+
+.sign-container{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    
+    align-items: center;
+    gap: 5px;
+}
+.sign-up-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-block: 3.9rem;
+    flex-basis: 50%;
+    position: sticky;
+    top: 0;
+   
+    flex-direction: column;
+    height: 100%;
+    
+}
+.branded-button{
+    border: 1px dashed #888;
+    width: 64%;
+    padding: 12px;
+    font-weight: 600;
+   background: #db1a5a;
+    /*border: 1.9px dashed var(--on-primary);
+    color: var(--on-primary);*/
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: var(--fs-small-11);
+    color: white;
+}
+.relative-text{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: var(--fs-small-10);
+}
+pre {
+    color: white;
+    background-color: #222;
+}
+.bottom-text{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    justify-content: center;
+    font-size: small;
+    font-weight: 600;
+}
+.logo-container{
+    font-size: x-small;
+    padding: 5px;
+    border-radius: 25px;
+    font-weight: 600;
+}
+label{
+    font-weight: 600;
+}
+.sign-banner-section{
+    background: url('/background/de8479bc44a24c914396c0807264287c.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 1px dashed #222;
+    flex-basis: 50%;
+    height: 100%;
+    position: sticky;
+    top: 0;
+}
+body.dark{
+    background-color: black;
+    color: white;
+}

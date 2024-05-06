@@ -1,0 +1,68 @@
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+li { list-style: none; }
+
+a,
+img,
+span,
+input,
+button { display: block; }
+button{
+  cursor: pointer;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img { height: auto; }
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+button { cursor: pointer; }
+
+input {
+  width: 100%;
+  outline: none;
+}
+::selection{
+  color: var(--on-primary);
+  background-color: rgb(247, 247, 220);
+}
+::-webkit-scrollbar{
+  width: 5px;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 6px;
+  background-color: #d3d2d2;
+}
+.button{
+  border: 1px dashed var(--on-primary);
+  border-radius: 25px;
+  font-weight: 600;
+}
+td{
+  padding: 12px;
+}
+tbody tr{
+  border-bottom: 1px dashed #222;
+}
+tbody tr td{
+  font-size: var(--fs-small-10);
+    font-weight: bolder;
+    white-space: nowrap;
+}
