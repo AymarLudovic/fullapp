@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-component/app.css">
+    <link rel="stylesheet" href="style-component/sign-up.css">
+    <link rel="shortcut icon" href="favicon/favicon.svg" type="image/x-icon">
+    <title>Sign in on selllab.</title>
+</head>
+<body>
+    <form action="/sign-in" method="post" class="sign-up-form sign-app">
+        <div class="logo-container">Selllab.</div>
+        <div class="input-group">
+            <input type="email" name="email" required>
+            <label for="email">Email</label>
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" required>
+            <label for="password">Password</label>
+        </div>
+        <P class="relative-text">Don't you have an account ? <a href="/sign-up">Sign up</a></P>
+        <button type="submit" class="branded-button">Sign In</button>
+        
+    </form>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon/favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="style-component/add-product.css">
+  <link rel="stylesheet" href="style-component/app.css">
+  <link rel="stylesheet" href="style-component/manager.css">
+  <title>Add a new product to your store</title>
+</head>
+<body class="dar">
+  <form action="/add-product" method="post" enctype="multipart/form-data" class="product-creation-section">
+   <div class="product-container first-container">
+    <div class="top-container">
+      <h3>Create New product</h3>
+    </div>
+    <div class="select-image img-area">
+      <div class="background-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M3 20h18a1 1 0 0 0 .864-1.504l-7-12c-.359-.615-1.369-.613-1.729 0L9.866 12.1l-1.02-1.632A.998.998 0 0 0 8 10h-.001a1 1 0 0 0-.847.47l-5 8A1 1 0 0 0 3 20zM14 8.985 19.259 18h-5.704l-2.486-3.987L14 8.985zm-5.999 3.9L11.197 18H4.805l3.196-5.115zM6 8c1.654 0 3-1.346 3-3S7.654 2 6 2 3 3.346 3 5s1.346 3 3 3zm0-4a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+      </div>
+      <input type="file" name="image" id="file" style="display: none;"/>
+    </div>
+    <div class="input-group">
+      <input type="text" name="name" required>
+      <label for="product">Product name</label>
+    </div>
+    <div class="input-group">
+      <input type="number" name="price" required>
+      <label for="product">Product Price</label>
+    </div>
+    <div class="input-group">
+      <input type="number" name="delivery" required>
+      <label for="product">Shipping Price</label>
+    </div>
+    <div class="text-area-container">
+      <div class="toolbar">
+        <button type="button" class="toolbar-button" onclick="toggleBold()"> <svg viewBox="0 0 20 20" height="15" width="15" fill="#333" ><path fill-rule="evenodd" d="M7 3c-.83 0-1.5.67-1.5 1.5v10.46c0 .85.69 1.54 1.54 1.54h4.46a4 4 0 0 0 2.32-7.26 4 4 0 0 0-3.32-6.24h-3.5Zm3.5 5.5a1.5 1.5 0 0 0 0-3h-2.5v3h2.5Zm-2.5 2.5v3h3.5a1.5 1.5 0 0 0 0-3h-3.5Z"></path></svg></button>
+        <button type="button" class="toolbar-button" onclick="toggleItalic()"><svg viewBox="0 0 20 20" height="15" width="15" fill="#333" ><path fill-rule="evenodd" d="M 7.5 4.25 c 0 -0.41 0.34 -0.75 0.75 -0.75 h 6 a 0.75 0.75 0 0 1 0 1.5 h -2.34 l -2.28 10 h 2.12 a 0.75 0.75 0 0 1 0 1.5 h -6 a 0.75 0.75 0 0 1 0 -1.5 h 2.34 l 2.28 -10 h -2.12 a 0.75 0.75 0 0 1 -0.75 -0.75 Z"></path></svg></button>
+        <button type="button" class="toolbar-button" onclick="copyText()"><svg viewBox="0 0 20 20" height="15" width="15" fill="#333"><path d="M8.75 8.5a.75.75 0 0 1 .75.75v1.25h1.25a.75.75 0 0 1 0 1.5h-1.25v1.25a.75.75 0 0 1-1.5 0v-1.25h-1.25a.75.75 0 0 1 0-1.5h1.25v-1.25a.75.75 0 0 1 .75-.75Z"></path><path fill-rule="evenodd" d="M8.75 3.5a2.75 2.75 0 0 0-2.74 2.51 2.75 2.75 0 0 0-2.51 2.74v5a2.75 2.75 0 0 0 2.75 2.75h5a2.75 2.75 0 0 0 2.74-2.51 2.75 2.75 0 0 0 2.51-2.74v-5a2.75 2.75 0 0 0-2.75-2.75h-5Zm2.5 2.5h-3.725c.116-.57.62-1 1.225-1h5c.69 0 1.25.56 1.25 1.25v5c0 .605-.43 1.11-1 1.225v-3.725a2.75 2.75 0 0 0-2.75-2.75Zm-5 1.5c-.69 0-1.25.56-1.25 1.25v5c0 .69.56 1.25 1.25 1.25h5c.69 0 1.25-.56 1.25-1.25v-5c0-.69-.56-1.25-1.25-1.25h-5Z"></path></svg></button>
+        <button type="button" class="toolbar-button" onclick="toggleParagraph()"><svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16" fill="#333" ><path d="M360-160v-240q-83 0-141.5-58.5T160-600q0-83 58.5-141.5T360-800h360v80h-80v560h-80v-560H440v560h-80Z"/></svg></button>
+        <button type="button" class="toolbar-button" onclick="toggleBulletList()"><svg viewBox="0 0 20 20" height="16" width="16" fill="#333" ><path d="M4 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path><path d="M4 11a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path><path d="M5 15a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path><path d="M7.25 4.25a.75.75 0 0 0 0 1.5h9a.75.75 0 0 0 0-1.5h-9Z"></path><path d="M6.5 10a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 0 1.5h-9a.75.75 0 0 1-.75-.75Z"></path><path d="M7.25 14.25a.75.75 0 0 0 0 1.5h9a.75.75 0 0 0 0-1.5h-9Z"></path></svg></button>
+        <button type="button" class="toolbar-button" onclick="toggleNumberList()"><svg viewBox="0 0 20 20" height="16" width="16" fill="#333"><path fill-rule="evenodd" d="M7 5a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Zm0 5a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Zm0 5a.75.75 0 0 1 .75-.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1-.75-.75Z"></path><path d="m3.75 3.38-.2.15a.5.5 0 1 1-.6-.8l.6-.45a.75.75 0 0 1 1.2.6v3h.5a.5.5 0 0 1 0 1h-2a.5.5 0 1 1 0-1h.5v-2.5Zm-1 5.87a1.5 1.5 0 1 1 3 0v.05a1.5 1.5 0 0 1-.503 1.122l-.932.828h.935a.5.5 0 0 1 0 1h-1.592c-.69 0-1.014-.852-.499-1.31l1.423-1.265a.5.5 0 0 0 .168-.375v-.05a.5.5 0 0 0-1 0 .5.5 0 0 1-1 0Zm.5 3.88a.5.5 0 0 0 0 1h1.188a.32.32 0 0 1 .312.32.506.506 0 0 1-.24.43h-.76a.5.5 0 0 0 0 1h.76c.145.088.24.252.24.43a.32.32 0 0 1-.312.32h-1.188a.5.5 0 0 0 0 1h1.188a1.32 1.32 0 0 0 1.312-1.32 1.51 1.51 0 0 0-.321-.93 1.51 1.51 0 0 0 .321-.93 1.32 1.32 0 0 0-1.312-1.32h-1.188Z"></path></svg></button>
+    </div>
+      <textarea name="description" id="descriptionTextarea"  class="description-container" placeholder="Description..."></textarea>
+      
+  </div>
+    
+    
+   </div>
+    <div class="product-container second-container">
+      <div class="additional-product-images">
+        <div class="additional-image-1 additional-image">
+          
+          <input type="file" id="image-input-1" name="image1" class="image-input"  style="display: none;"/>
+        </div>
+        
+        <div class="additional-image-2 additional-image">
+          
+          <input type="file" id="image-input-2" name="image2" class="image-input"  style="display: none;"/>
+        </div>
+        
+        <div class="additional-image-3 additional-image">
+          
+          <input type="file" id="image-input-3" name="image3" class="image-input"  style="display: none;"/>
+      
+        </div>
+        
+      </div>
+      <button type="submit" class="button-add-item">Envoyer</button>
+    </div>
+    <input style="display: none;" id="shopIdInput" name="shop" />
+    <input type="text" name="size">
+    <input type="text" name="price">
+    <input type="text" name="size2">
+    <input type="text" name="size3">
+    <input type="text" name="size4">
+    </div>
+    <!-- autres champs du formulaire -->
+  </form>
+  <script src="upload/upload-2.js"></script>
+  <script src="upload/upload.js"></script>
+  <script>
+    // Extrait l'ID de 'shop' à partir de l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const shopId = urlParams.get('shop');
+  
+    // Définit la valeur de l'élément <input> avec l'ID de 'shop'
+    const shopIdInput = document.getElementById('shopIdInput');
+    shopIdInput.value = shopId;
+  </script>
+</body>
+</html>
