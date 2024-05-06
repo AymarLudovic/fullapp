@@ -1419,6 +1419,4 @@ app.get('/store', (req, res) => {
 
 
 
-app.listen(port, () => {
-    console.log(`le serveur est démarrer au port ${port} `)
-})
+const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
