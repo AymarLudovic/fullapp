@@ -1,0 +1,264 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+.top-container{
+    font-size: small;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+}
+.input-group{
+    position: relative;
+    margin: 10px 0;
+}
+.input-group label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: x-small;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: all .1s ease;
+    
+}
+body.dark .input-group input{
+    background: #111;
+    color: white;
+}
+body .input-group input{
+    color: black;
+}
+.input-group input{
+    width: 100%;
+    height: 35px;
+    font-size: small;
+    padding: 0 10px;
+    border: 1px dashed #222;
+    border-radius: 4px;
+    outline: none;
+}
+body.dark .input-group input:focus~label,
+.input-group input:valid~label{
+    background-color: #111;
+}
+.input-group input:focus~label,
+.input-group input:valid~label{
+    top: 0;
+    font-size: x-small;
+    background-color: white;
+    border: 1px dashed #888;
+    border-radius: 4px;
+}
+.input-group input:focus,
+.input-group input:valid{
+    border: 1px dashed #888;
+    color: currentColor;
+}
+
+.description-container{
+    height: 200px;
+    resize: none;
+    background: none;
+    border: none;
+    padding: 6px;
+    border-radius: 4px;
+    color: white;
+    outline: none;
+    margin-bottom: 2rem;
+    font-size: small;
+    width: 300px;
+    padding-inline-start: 13px;
+
+}
+textarea::placeholder{
+    font-size: 10px;
+    color: white;
+    
+}
+.text-area-container{
+    height: 255px;
+    border: 1px dashed #222;
+    width: 100%;
+    padding-inline: 16px;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+.toolbar{
+    display: flex;
+    align-items: center;
+    height: auto;
+    padding: 14px; 
+    width: 100%; 
+    justify-content: space-between;  
+    padding-inline: 12px;  
+}
+.toolbar-button{
+    padding: 4px 8px 4px 8px;
+    border: 1px dashed #222;
+    border-radius: 25px;
+}
+.toolbar-button.active{
+    background-color: white;
+}
+.product-creation-section{
+    flex-direction: column;
+    display: flex;
+    width: 50%;
+    
+    
+}
+.button-add-item{
+    padding: 10px;
+    border: 1px dashed #222;
+    border-radius: 25px;
+    font-size: var(--fs-small-10);
+    font-weight: 600;
+    color: var(--on-primary);
+    background-color: beige;
+}
+.first-container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-block-start: 12px;
+}
+.second-container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-block-start: 12px;
+}
+svg{
+    fill: #888;
+    
+}
+.product-details-name-description-container{
+    width: 450px;
+    height: auto;
+    padding: 16px;
+    border-radius: 4px;
+    border: 1px dashed #888;
+    background: rgba(0, 0, 0, 0.3);
+}
+.select-image{
+    height: 200px;
+    width: 450px;
+    border-radius: 4px;
+    border: 1px dashed #222;
+    background-image: url('/bg-2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.img-area{
+    position: relative;
+    width: 100%;
+    
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img-area span{
+    font-size: x-small;
+    font-family: 'Poppins' sans-serif;
+}
+.img-area img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 100;
+}
+.img-area::before {
+    content: attr(data-img);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: all .3s ease;
+    z-index: 200;
+}
+.img-area.active:hover::before {
+    opacity: 1;
+}
+
+.additional-image {
+    position: relative;
+    overflow: hidden;
+    /* Autres propriétés CSS pour la taille, la marge, etc. */
+
+    /* Ajoutez une ombre portée lors du survol */
+    transition: box-shadow 0.3s ease;
+}
+
+.additional-image:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.additional-image::before {
+    content: attr(data-filename); /* Affichez le nom du fichier */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 8px 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.additional-image:hover::before {
+    opacity: 1;
+}
+.additional-product-images{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+.additional-image{
+    width: 100%;
+    height: 250px;
+    border: 1px dashed #222;
+    border-radius: 4px;
+    background: url('images/bg-pattern.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.additional-image span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    font-size: small;
+}

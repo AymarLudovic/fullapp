@@ -1,0 +1,51 @@
+.menu-box:nth-child(4){
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #222;
+}
+.orders-section{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+}
+.orders-title-section{
+    font-size: smaller;
+}
+body .orders-title-section{
+    font-weight: 600;
+    position: relative;
+    padding-block: 4px;
+}
+.orders-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.orders-container .orders{
+    height: 250px;
+    width: 250px;
+    border: 1px dashed #222;
+    border-radius: 3px;
+}
+@media only screen and (max-width: 767px) {
+    .orders-container{
+        display: flex;
+        justify-content: center;
+        
+    }
+    .orders-container .orders{
+        width: 95%;
+    }
+}
+@media only screen and (min-width: 768px) {
+    /* Ajoutez ici les styles spécifiques aux ordinateurs de bureau et aux tablettes */
+    .orders-container{
+        padding-inline: 1.6rem;
+    }
+  }
