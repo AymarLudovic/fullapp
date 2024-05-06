@@ -793,6 +793,7 @@ app.get('/dashboard', (req, res) => {
           <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta name="theme-color" content="#db1a5a">
           <link rel="stylesheet" href="style-component/app.css">
           <link rel="stylesheet" href="style-component/overview.css">
           <link rel="stylesheet" href="style-component/manager.css">
@@ -974,6 +975,7 @@ app.get('/items', (req, res) => {
 function generateHTML(documents, step) {
   let html = '<html>';
   html += '<head>';
+  html += '<meta name="theme-color" content="#db1a5a">';
   html += '<link rel="stylesheet" href="style-component/app.css">';
     html += '<link rel="stylesheet" href="style-component/add-product.css">';
     html += '<link rel="stylesheet" href="style-component/overview.css">';
@@ -1068,6 +1070,7 @@ function generateDocumentFilterHtml(documents) {
   let html = '';
   html += '<html lang="en">';
     html += '<meta charset="UTF-8">';
+  html += '<meta name="theme-color" content="#db1a5a">';
     html += '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
     html += '<link rel="stylesheet" href="style-component/app.css">';
     html += '<link rel="stylesheet" href="style-component/add-product.css">';
@@ -1365,6 +1368,7 @@ app.get('/store', (req, res) => {
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="theme-color" content="#db1a5a">
                 <link rel="stylesheet" href="style-component/app.css">
                 <link rel="stylesheet" href="style-component/template.css">
                 <link rel="shortcut icon" href="logo/nike-logo-removebg-preview (1).png" type="image/x-icon">
