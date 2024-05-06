@@ -9,7 +9,7 @@ const validator = require('validator');
 const fs = require('fs');
 const path = require('path');
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 3001;
 const { v4: uuidv4 } = require('uuid');
 const { Client, Account, Databases, ID, Query, Storage } = require('appwrite');
 
