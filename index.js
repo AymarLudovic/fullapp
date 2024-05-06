@@ -1320,101 +1320,127 @@ app.get('/builder', (req, res) => {
 });
 
 app.get('/store', (req, res) => {
-  const { shop } = req.query; // Récupérer l'ID de la boutique depuis les paramètres de requête
-  const selectedThemeCookie = `${shop}_selectedTheme`;
-  const selectedTheme = req.cookies[selectedThemeCookie] || 'theme1'; // Thème par défaut
+  if (!userIdGlobal) {
+    res.redirect('/sign-up');
+  } else {
+    const shopId = req.query.shop; // Récupère l'ID de la boutique depuis la requête
+    console.log(shopId); // Vérifiez si l'ID de la boutique est correctement récupéré
 
-  let storeContent = '';
+    const promise1 = databases.listDocuments('selllab-database-2024', 'users-app-products-2024');
+    const promise2 = databases.listDocuments('selllab-database-2024', 'store-creation-2024');
 
-  switch (selectedTheme) {
-    case 'theme1':
-      storeContent = `<h1>Contenu du thème 1</h1>
-      <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style-component/app.css">
-    <link rel="stylesheet" href="style-component/template.css">
-    <link rel="shortcut icon" href="logo/nike-logo-removebg-preview (1).png" type="image/x-icon">
-    <title>Nike store</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="first">
-                <a href=""><img src="logo/nike-logo-removebg-preview (1).png" alt="" class="logo"></a>
-            </div>
-            <div class="last">
-                <span class="search">
-                    <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="20px" height="20px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"></path></svg>
-                    <input type="text" placeholder="Rechercher...">
-                </span>
-                <span>
-                    <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="20px" height="20px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M8.25 8.25V6a2.25 2.25 0 012.25-2.25h3a2.25 2.25 0 110 4.5H3.75v8.25a3.75 3.75 0 003.75 3.75h9a3.75 3.75 0 003.75-3.75V8.25H17.5"></path></svg>
-                </span>
-                <span>
-                    <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="20px" height="20px" fill="none" data-var="glyph" style="display: inline-block;"><path fill="currentColor" d="M12 3a4.5 4.5 0 00-4.5 4.5H9a3 3 0 013-3V3zM7.5 7.5A4.5 4.5 0 0012 12v-1.5a3 3 0 01-3-3H7.5zM12 12a4.5 4.5 0 004.5-4.5H15a3 3 0 01-3 3V12zm4.5-4.5A4.5 4.5 0 0012 3v1.5a3 3 0 013 3h1.5zM4.5 21v-3H3v3h1.5zm0-3a3 3 0 013-3v-1.5A4.5 4.5 0 003 18h1.5zm3-3h9v-1.5h-9V15zm9 0a3 3 0 013 3H21a4.5 4.5 0 00-4.5-4.5V15zm3 3v3H21v-3h-1.5z"></path></svg>
-                </span>
-                <span>
-                    <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="20px" height="20px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M21 5.25H3M21 12H3m18 6.75H3"></path></svg>
-                </span>
-            </div>
-        </nav>
-    </header>
-    <div class="banner">
-        <h1>
-            Nike Cortez
-        </h1>
-        <a href="#shop" class="button-shop">Start shopping</a>
-    </div>
-    <div class="product-section">
-        <div class="product">
-            <img src="/products/nike.jpg" alt="">
-            <span class="name">NIKE UNDEROOPED</span>
-            <span class="price">$250,00</span>
-        </div>
-        <div class="product">
-            <img src="/products/nike.jpg" alt="">
-            <span class="name">NIKE UNDEROOPED</span>
-            <span class="price">$250,00</span>
-        </div>
-        <div class="product">
-            <img src="/products/nike.jpg" alt="">
-            <span class="name">NIKE UNDEROOPED</span>
-            <span class="price">$250,00</span>
-        </div>
-        <div class="product">
-            <img src="/products/nike.jpg" alt="">
-            <span class="name">NIKE UNDEROOPED</span>
-            <span class="price">$250,00</span>
-        </div>
-    </div>
-    <footer>
-        <span>Powered by selllab.</span>
-        <span>© copyright 2024 selllab.</span>
-    </footer>
-</body>
-</html>
-      
-      `;
-      break;
-    case 'theme2':
-      storeContent = '<h1>Contenu du thème 2</h1>';
-      break;
-    case 'theme3':
-      storeContent = '<h1>Contenu du thème 3</h1>';
-      break;
-    default:
-      storeContent = '<h1>Contenu par défaut</h1>';
+    Promise.all([promise1, promise2])
+      .then(function (responses) {
+        const userProductsResponse = responses[0];
+        const storeCreationResponse = responses[1];
+
+        console.log(userProductsResponse); // Affiche la réponse complète de user-products-2024 dans la console
+        console.log(storeCreationResponse); // Affiche la réponse complète de store-creation-2024 dans la console
+
+        // Filtrer les documents de user-products-2024 en fonction de l'ID utilisateur et de l'ID de la boutique
+        const filteredDocuments = userProductsResponse.documents.filter((document) => {
+          return document.store === shopId;
+        });
+
+        console.log(filteredDocuments); // Vérifiez les documents filtrés
+
+        // Recherchez le document correspondant dans store-creation-2024
+        const storeCreationDocument = storeCreationResponse.documents.find((document) => {
+          return document.documentId === shopId;
+        });
+
+        console.log(storeCreationDocument); // Vérifiez le document trouvé
+
+
+        const { shop } = req.query; // Récupérer l'ID de la boutique depuis les paramètres de requête
+        const selectedThemeCookie = `${shop}_selectedTheme`;
+        const selectedTheme = req.cookies[selectedThemeCookie] || 'theme1'; // Thème par défaut
+
+        let storeContent = '';
+
+        switch (selectedTheme) {
+          case 'theme1':
+            storeContent = `
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="style-component/app.css">
+                <link rel="stylesheet" href="style-component/template.css">
+                <link rel="shortcut icon" href="logo/nike-logo-removebg-preview (1).png" type="image/x-icon">
+                <title>Nike store</title>
+            </head>
+            <body>
+                <header>
+                    <nav>
+                        <div class="first">
+                            <a href=""><img src="logo/nike-logo-removebg-preview (1).png" alt="" class="logo"></a>
+                        </div>
+                        <div class="last">
+                            <span class="search">
+                                <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="20px" height="20px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"></path></svg>
+                                <input type="text" placeholder="Rechercher...">
+                            </span>
+                            <span>
+                                <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="20px" height="20px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M8.25 8.25V6a2.25 2.25 0 012.25-2.25h3a2.25 2.25 0 110 4.5H3.75v8.25a3.75 3.75 0 003.75 3.75h9a3.75 3.75 0 003.75-3.75V8.25H17.5"></path></svg>
+                            </span>
+                            <span>
+                                <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="20px" height="20px" fill="none" data-var="glyph" style="display: inline-block;"><path fill="currentColor" d="M12 3a4.5 4.5 0 00-4.5 4.5H9a3 3 0 013-3V3zM7.5 7.5A4.5 4.5 0 0012 12v-1.5a3 3 0 01-3-3H7.5zM12 12a4.5 4.5 0 004.5-4.5H15a3 3 0 01-3 3V12zm4.5-4.5A4.5 4.5 0 0012 3v1.5a3 3 0 013 3h1.5zM4.5 21v-3H3v3h1.5zm0-3a3 3 0 013-3v-1.5A4.5 4.5 0 003 18h1.5zm3-3h9v-1.5h-9V15zm9 0a3 3 0 013 3H21a4.5 4.5 0 00-4.5-4.5V15zm3 3v3H21v-3h-1.5z"></path></svg>
+                            </span>
+                            <span>
+                                <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="20px" height="20px" fill="none"><path stroke="currentColor" stroke-width="1.5" d="M21 5.25H3M21 12H3m18 6.75H3"></path></svg>
+                            </span>
+                        </div>
+                    </nav>
+                </header>
+                <div class="banner">
+                    <h1>
+                        Nike Cortez
+                    </h1>
+                    <a href="#shop" class="button-shop">Start shopping</a>
+                </div>
+                <div class="product-container">
+                  <div class="product">
+                    ${filteredDocuments.map((document) => {
+                      const image = document.image; // Récupérer l'image du document
+                      // Récupérer le documentId du document trouvé
+                      const name = document.name;
+                      const price = document.price;
+                      return `
+                      
+                        <img src="${image}" alt="">
+                      <span class="name">${name}</span>
+                      <span class="price">$${price},00</span>
+                      `;
+                    }).join('')}
+                  </div>
+                </div>
+                <footer>
+                    <span>Powered by selllab.</span>
+                    <span>© copyright 2024 selllab.</span>
+                </footer>
+              </body>`;
+            break;
+          case 'theme2':
+            storeContent = '<h1>Contenu du thème 2</h1>';
+            break;
+          case 'theme3':
+            storeContent = '<h1>Contenu du thème 3</h1>';
+            break;
+          default:
+            storeContent = '<h1>Contenu par défaut</h1>';
+        }
+
+        const storePage = `
+          <h1>Page Store</h1>
+          ${storeContent}
+        `;
+
+        res.send(storePage);
+      });
   }
-
-  const storePage = `
-    <h1>Page Store</h1>
-    ${storeContent}
-  `;
-
-  res.send(storePage);
 });
+
 
 
 
