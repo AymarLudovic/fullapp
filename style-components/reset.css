@@ -4,6 +4,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* Modifier la couleur de la barre de chargement */
+::-webkit-progress-value {
+  background-color: purple !important;
+}
 
 html{
     scroll-behavior: smooth;
