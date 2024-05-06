@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('/style-component/Poppins-Light.ttf') format('truetype');
+}
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: inherit;
+}
+
+/* Font size */
+
+:root{
+    --fs-small-9: 9px;
+    --fs-small-10: 10px;
+    --fs-small-11: 11px;
+    --fs-small-12: 12px;
+    --fs-small-13: 13px;
+    --fs-small-14: 14px;
+    --fs-base: 62.5%;
+    --fs-display-large: 5.7rem;
+    --fs-display-medium: 4.5rem;
+    --fs-display-small: 3.6rem;
+    --fs-headline-large: 3.2rem;
+    --fs-headline-medium: 2.8rem;
+    --fs-headline-small: 2.4rem;
+    --fs-title-large: 2.2rem;
+    --fs-title-medium: 1.6rem;
+    --fs-title-small: 1.4rem;
+    --fs-body-large: 1.6rem;
+    --fs-body-medium: 1.4rem;
+    --fs-body-small: 1.2rem;
+    --fs-label-large: 1.4rem;
+    --fs-label-medium: 1.2rem;
+    --fs-label-small: 1.1rem;
+}
+
+/* Line height */
+
+:root{
+    --lh-base: 20px;
+    --lh-display-large: 64px;
+    --lh-display-medium: 52px;
+    --lh-display-small: 44px;
+    --lh-headline-large: 40px;
+    --lh-headline-medium: 36px;
+    --lh-headline-small: 32px;
+    --lh-title-large: 28px;
+    --lh-title-medium: 24px;
+    --lh-title-small: 20px;
+    --lh-body-large: 24px;
+    --lh-body-medium: 20px;
+    --lh-body-small: 16px;
+    --lh-label-large: 20px;
+    --lh-label-medium: 16px;
+    --lh-label-small: 16px;
+}
+
+/* Font weight */
+
+:root{
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-medium-lg: 600;
+}
+
+/* Border radius */
+
+:root{
+    --radius-extra-small: 4px;
+    --radius-small: 8px;
+    --radius-medium: 12px;
+    --radius-large: 16px;
+    --radius-extra-large: 28px;
+    --radius-full: 1000px;
+}
+
+/* Transition */
+
+:root{
+    --tr-duration-short: 200ms;
+    --tr-duration-medium: 400ms;
+    --tr-duration-long: 500ms;
+}
+
+/* Colors pannels */
+
+:root{
+  --black: #000000;
+  --background: #191C1A;
+  --on-background: #E1E3DF;
+  --surface: #0c0e0c;
+  --surface-variant: #404943;
+  --surface-container: #1D201E;
+  --surface-container-low: #191C1A;
+  --surface-container-high: #272B28;
+  --surface-container-highest: #323633;
+  --on-surface: #C5C7C3;
+  --on-surface-variant: #C0C9C1;
+  --primary: #12E29A;
+  --on-primary: #003823;
+  --primary-container: #005235;
+  --on-primary-container: #4BFFB4;
+  --secondary-container: #364B3F;
+  --on-secondary-container: #D0E8D7;
+  --outline: #8A938C;
+  --outline-variant: #404943;
+  --inverse-surface: #E1E3DF;
+  --inverse-on-surface: #191C1A;
+  --error: #FFB4AB;
+  --on-error: #690005;
+}
