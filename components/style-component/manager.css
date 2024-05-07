@@ -254,6 +254,7 @@ body.dark .onboard-data .onboard-data-display{
     height: auto;
     border: 1px dashed #222;
     border-collapse: collapse;
+    overflow-y: auto;
 }
 .ma
 body .aside-container{
@@ -440,6 +441,17 @@ table{
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding-block-start: 20px;
+   }
+   .menu-box:nth-child(2), .menu-box:nth-child(3), .menu-box:nth-child(4){
+    display: inline-block;
+    padding-inline-start: 20px;
+   }
+   .menu-box:nth-child(2) svg, .menu-box:nth-child(3) svg, .menu-box:nth-child(4) svg{
+    display: none;
+   }
+   .main-container-section{
+    display: flex;
+    justify-content: center;
    }
   }
   
