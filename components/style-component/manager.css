@@ -42,7 +42,7 @@
     top: 0;
     display: flex;
     justify-content: flex-start;
-    
+    overflow-y: auto;
     height: 100%;
     
     
@@ -256,7 +256,10 @@ body.dark .onboard-data .onboard-data-display{
     border-collapse: collapse;
     overflow-y: auto;
 }
-.ma
+.aside-container{
+    background-color: white;
+    z-index: 9000;
+}
 body .aside-container{
     background-color: white;
     z-index: 100;
@@ -441,6 +444,8 @@ table{
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding-block-start: 20px;
+    z-index: 9000;
+    background-color: white;
    }
    .menu-box:nth-child(2), .menu-box:nth-child(3), .menu-box:nth-child(4){
     display: inline-block;
