@@ -92,6 +92,10 @@ app.get('/overview', (req, res) => {
   res.sendFile(path.join(initial_path, "overview.html"));
 });
 
+app.get('/paypal', (req, res) => {
+  res.sendFile(path.join(initial_path, "paypal.html"));
+});
+
 app.get('/template', (req, res) => {
   res.sendFile(path.join(initial_path, "template.html"));
 });
